@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대시보드 | StudyFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <!-- 사이드바 (모든 페이지 공통) -->
+  <nav class="sidebar">
+    <div class="logo">
+      <strong>Study<span>Flow</span></strong>
+      <p>나의 학교생활 플래너</p>
+    </div>
+    <div class="menu">
+      <a href="index.html" class="active">대시보드</a>
+      <a href="tasks.html">과제</a>
+      <a href="calendar.html">일정</a>
+      <a href="#">설정</a>
+    </div>
+    <div class="memo"><b>✏️ 오늘의 한마디</b>미루지 말고 하나씩 끝내자!</div>
+  </nav>
+
+  <div class="main">
+    <!-- 상단바 -->
+    <header class="topbar">
+      <h1>대시보드</h1>
+      <input class="input search" type="search" placeholder="🔍  과제 검색 (Enter)">
+      <div class="profile">
+        <div class="avatar">서</div>
+        <div>박서준<small>3학년</small></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section>
+        <h2 class="greeting">안녕하세요, 서준님 👋</h2>
+        <p class="sub-text" id="todayText"></p>
+      </section>
+
+      <section class="stats">
+        <div class="card stat">
+          <p>남은 과제</p>
+          <strong id="statLeft">0<small>개</small></strong>
+          <span id="statLeftNote"></span>
+        </div>
+        <div class="card stat">
+          <p>오늘 일정</p>
+          <strong id="statToday">0<small>개</small></strong>
+          <span id="statTodayNote"></span>
+        </div>
+        <div class="card stat">
+          <p>이번 주 완료율</p>
+          <strong id="statRate">0<small>%</small></strong>
+          <div class="bar"><div id="rateBar"></div></div>
+          <span id="statRateNote"></span>
+        </div>
+      </section>
+
+      <section class="dash-bottom">
+        <div class="card table">
+          <div class="card-head">
+            <h3>다가오는 과제</h3><span class="mute">마감 빠른 순</span>
+            <a class="link push" href="tasks.html">전체 보기 →</a>
+            <a class="btn" href="tasks.html?add=1">+ 과제 추가</a>
+          </div>
+          <div class="tr head"><div class="title">과제명</div><div class="subj">과목</div><div class="due">마감일</div><div class="status">상태</div></div>
+          <div id="upcomingList"></div>
+        </div>
+
+        <div class="card today-box">
+          <div class="card-head"><h3>오늘의 일정</h3><span class="mute" id="todayLabel"></span></div>
+          <div id="todayEvents"></div>
+          <a class="link" href="calendar.html">일정 보러 가기 →</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="js/dashboard.js" defer></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>

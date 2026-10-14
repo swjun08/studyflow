@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>일정 | StudyFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <!-- 사이드바 (모든 페이지 공통) -->
+  <nav class="sidebar">
+    <div class="logo">
+      <strong>Study<span>Flow</span></strong>
+      <p>나의 학교생활 플래너</p>
+    </div>
+    <div class="menu">
+      <a href="index.html">대시보드</a>
+      <a href="tasks.html">과제</a>
+      <a href="calendar.html" class="active">일정</a>
+      <a href="#">설정</a>
+    </div>
+    <div class="memo"><b>✏️ 오늘의 한마디</b>미루지 말고 하나씩 끝내자!</div>
+  </nav>
+
+  <div class="main">
+    <!-- 상단바 -->
+    <header class="topbar">
+      <h1>일정</h1>
+      <input class="input search" type="search" placeholder="🔍  과제 검색 (Enter)">
+      <div class="profile">
+        <div class="avatar">서</div>
+        <div>박서준<small>3학년</small></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="toolbar">
+        <button class="btn secondary" id="prevMonth">‹</button>
+        <h2 id="monthTitle" class="month-title"></h2>
+        <button class="btn secondary" id="nextMonth">›</button>
+        <button class="btn secondary" id="todayBtn">오늘</button>
+        <button class="btn push" id="addEventBtn">+ 일정 추가</button>
+      </div>
+
+      <div class="cal-wrap">
+        <div class="card calendar">
+          <div class="week-head"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+          <div class="grid" id="calGrid"></div>
+        </div>
+
+        <aside class="card day-panel">
+          <h3 id="dayTitle"></h3>
+          <p class="mute" id="dayCount"></p>
+          <div id="dayEvents"></div>
+          <p class="hint">💡 달력에서 날짜를 누르면 그날 일정을 볼 수 있어요</p>
+        </aside>
+      </div>
+    </main>
+
+<!-- 일정 추가 모달 -->
+<dialog id="eventDialog">
+  <h2>새 일정 추가</h2>
+  <p class="desc">날짜와 시간을 정해두면 달력에 바로 표시돼요.</p>
+  <form class="form" id="eventForm" method="dialog">
+    <div class="field">
+      <label for="eTitle">일정명</label>
+      <input class="input" id="eTitle" required maxlength="30" placeholder="예) 도서관 책 반납">
+    </div>
+    <div class="row2">
+      <div class="field"><label for="eDate">날짜</label><input class="input" id="eDate" type="date" required></div>
+      <div class="field"><label for="eTime">시간</label><input class="input" id="eTime" type="time" required></div>
+    </div>
+    <div class="field">
+      <label for="eMemo">설명</label>
+      <textarea class="input" id="eMemo" placeholder="메모 (선택)"></textarea>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn secondary" data-close>취소</button>
+      <button type="submit" class="btn">저장</button>
+    </div>
+  </form>
+</dialog>
+  </div>
+</div>
+
+<script src="js/calendar.js" defer></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>

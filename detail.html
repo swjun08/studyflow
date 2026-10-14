@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>과제 상세 | StudyFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <!-- 사이드바 (모든 페이지 공통) -->
+  <nav class="sidebar">
+    <div class="logo">
+      <strong>Study<span>Flow</span></strong>
+      <p>나의 학교생활 플래너</p>
+    </div>
+    <div class="menu">
+      <a href="index.html">대시보드</a>
+      <a href="tasks.html" class="active">과제</a>
+      <a href="calendar.html">일정</a>
+      <a href="#">설정</a>
+    </div>
+    <div class="memo"><b>✏️ 오늘의 한마디</b>미루지 말고 하나씩 끝내자!</div>
+  </nav>
+
+  <div class="main">
+    <!-- 상단바 -->
+    <header class="topbar">
+      <h1>과제 상세</h1>
+      <input class="input search" type="search" placeholder="🔍  과제 검색 (Enter)">
+      <div class="profile">
+        <div class="avatar">서</div>
+        <div>박서준<small>3학년</small></div>
+      </div>
+    </header>
+
+    <main class="content">
+      <div><a class="btn secondary" href="tasks.html">← 목록으로</a></div>
+
+      <section class="card detail" id="detail">
+        <div class="detail-top">
+          <span class="detail-subject" id="dSubject"></span>
+          <span id="dTag"></span>
+        </div>
+        <h2 id="dTitle"></h2>
+
+        <div class="info">
+          <div><p>과목</p><b id="dSubject2"></b></div>
+          <div><p>마감일</p><b id="dDue"></b></div>
+          <div><p>생성일</p><b id="dCreated"></b></div>
+          <div><p>현재 상태</p><b id="dStatus"></b></div>
+        </div>
+
+        <div>
+          <h4>설명</h4>
+          <p class="memo-text" id="dMemo"></p>
+        </div>
+
+        <div class="detail-actions">
+          <button class="btn" id="doneBtn">완료 처리</button>
+          <span class="mute" id="doneNote"></span>
+          <button class="btn secondary push" id="editBtn">수정</button>
+          <button class="btn danger-text" id="deleteBtn">삭제</button>
+        </div>
+      </section>
+    </main>
+<!-- 과제 추가/수정 모달 (같은 모달을 같이 사용) -->
+<dialog id="taskDialog">
+  <h2 id="taskDialogTitle">새 과제 추가</h2>
+  <p class="desc" id="taskDialogDesc">해야 할 과제를 적어두면 마감 전에 챙기기 쉬워요.</p>
+  <form class="form" id="taskForm" method="dialog">
+    <div class="field">
+      <label for="fTitle">과제명</label>
+      <input class="input" id="fTitle" required maxlength="40" placeholder="예) 영어 에세이 쓰기">
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="fSubject">과목</label>
+        <input class="input" id="fSubject" required maxlength="10" placeholder="예) 영어">
+      </div>
+      <div class="field">
+        <label for="fDue">마감일</label>
+        <input class="input" id="fDue" type="date" required>
+      </div>
+    </div>
+    <div class="field" id="statusField" hidden>
+      <label for="fStatus">상태</label>
+      <select class="input" id="fStatus">
+        <option>시작 전</option><option>진행 중</option><option>완료</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="fMemo">설명</label>
+      <textarea class="input" id="fMemo" placeholder="자세한 내용을 적어주세요"></textarea>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn secondary" data-close>취소</button>
+      <button type="submit" class="btn" id="taskSubmit">추가</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- 삭제 확인 모달 -->
+<dialog id="deleteDialog" class="small">
+  <h2>이 과제를 삭제하시겠어요?</h2>
+  <p class="desc" id="deleteDesc"></p>
+  <div class="actions" style="margin-top:20px">
+    <button type="button" class="btn secondary" data-close>취소</button>
+    <button type="button" class="btn danger" id="deleteConfirm">삭제</button>
+  </div>
+</dialog>
+
+  </div>
+</div>
+
+<script src="js/detail.js" defer></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
