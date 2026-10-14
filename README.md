@@ -11,6 +11,16 @@ Figma로 설계한 UI 프로토타입을 HTML · CSS · JavaScript로 직접 구
 "이번 주에 뭘 해야 하지?"를 한눈에 보기 어려웠습니다.
 그래서 **과제 + 일정을 한 화면에서 보고, 바로 추가·수정·삭제할 수 있는** 페이지를 만들었습니다.
 
+## 화면
+
+| 대시보드 | 과제 목록 |
+|---|---|
+| ![대시보드](screenshots/1-dashboard.png) | ![과제 목록](screenshots/2-tasks.png) |
+| **과제 수정 모달** | **과제 상세** |
+| ![수정 모달](screenshots/3-edit-modal.png) | ![과제 상세](screenshots/4-detail.png) |
+| **일정 (달력)** | |
+| ![일정](screenshots/5-calendar.png) | |
+
 ## 페이지 구성
 
 | 페이지 | 파일 | 내용 |
